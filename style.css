@@ -1,0 +1,372 @@
+/* Modern Custom Styling - Greenhouse Finance & Garden */
+
+:root {
+  --font-main: 'Plus Jakarta Sans', sans-serif;
+  
+  /* Light Theme Color Palette */
+  --bg-body: #f4fbf6;
+  --text-main: #2e4033;
+  --text-subtle: #57735f;
+  --text-headline: #122b1a;
+  
+  --glass-bg: rgba(255, 255, 255, 0.78);
+  --glass-border: rgba(200, 238, 211, 0.6);
+  --glass-shadow: rgba(32, 75, 47, 0.06);
+
+  --pastel-accent: #47b067;
+  --pastel-accent-hover: #34904f;
+  --pastel-light: #e8f7ec;
+  --pastel-chip: #c8eed3;
+
+  --input-bg: rgba(255, 255, 255, 0.9);
+  --input-border: #d2f0da;
+
+  --table-border: rgba(210, 240, 218, 0.6);
+}
+
+html.dark {
+  /* Dark Theme Color Palette */
+  --bg-body: #0a140d;
+  --text-main: #d1e7d7;
+  --text-subtle: #81a48b;
+  --text-headline: #f0fdf4;
+  
+  --glass-bg: rgba(15, 30, 20, 0.78);
+  --glass-border: rgba(255, 255, 255, 0.08);
+  --glass-shadow: rgba(0, 0, 0, 0.4);
+
+  --pastel-accent: #47b067;
+  --pastel-accent-hover: #5ec37d;
+  --pastel-light: #12291a;
+  --pastel-chip: #1e3f29;
+
+  --input-bg: rgba(20, 40, 27, 0.8);
+  --input-border: rgba(255, 255, 255, 0.12);
+
+  --table-border: rgba(255, 255, 255, 0.08);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: var(--font-main);
+}
+
+body {
+  background-color: var(--bg-body);
+  color: var(--text-main);
+  transition: background-color 0.4s ease, color 0.4s ease;
+  position: relative;
+  overflow-x: hidden;
+}
+
+/* Background Canvas */
+#leafCanvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.relative-z10 {
+  position: relative;
+  z-index: 10;
+}
+
+/* Typography & Badges */
+.text-headline { color: var(--text-headline); }
+.text-subtle { color: var(--text-subtle); }
+.text-accent { color: var(--pastel-accent); }
+
+.icon-badge {
+  padding: 8px;
+  border-radius: 16px;
+  background-color: var(--pastel-chip);
+  color: var(--text-headline);
+}
+
+.inline-badge {
+  display: inline-block;
+  padding: 4px 12px;
+  background-color: var(--pastel-chip);
+  color: var(--text-headline);
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  border-radius: 20px;
+}
+
+/* Glassmorphism Cards */
+.glass-card {
+  background: var(--glass-bg);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--glass-border);
+  box-shadow: 0 10px 25px -5px var(--glass-shadow);
+  border-radius: 24px;
+  padding: 24px;
+  transition: all 0.3s ease;
+}
+
+.glass-btn {
+  background: var(--glass-bg);
+  backdrop-filter: blur(10px);
+  border: 1px solid var(--glass-border);
+  border-radius: 16px;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.hover-scale:hover {
+  transform: scale(1.05);
+}
+
+/* Buttons */
+.btn-primary {
+  background-color: var(--pastel-accent);
+  color: #ffffff;
+  font-weight: 700;
+  font-size: 14px;
+  padding: 12px 18px;
+  border-radius: 16px;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition: background-color 0.2s ease, transform 0.1s ease;
+  box-shadow: 0 4px 12px rgba(71, 176, 103, 0.3);
+}
+
+.btn-primary:hover {
+  background-color: var(--pastel-accent-hover);
+  transform: translateY(-1px);
+}
+
+.btn-secondary {
+  background-color: var(--pastel-chip);
+  color: var(--text-headline);
+  border: none;
+  cursor: pointer;
+  border-radius: 20px;
+  transition: opacity 0.2s;
+}
+
+.btn-subtle {
+  background-color: var(--pastel-light);
+  color: var(--text-main);
+  border: 1px solid var(--glass-border);
+  padding: 6px 12px;
+  border-radius: 12px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: background-color 0.2s;
+}
+
+.btn-subtle:hover {
+  background-color: var(--pastel-chip);
+}
+
+.btn-reset {
+  background-color: #ffe4e6;
+  color: #e11d48;
+  border: none;
+  cursor: pointer;
+  border-radius: 12px;
+  font-weight: 600;
+  padding: 6px 12px;
+  transition: background-color 0.2s;
+}
+
+html.dark .btn-reset {
+  background-color: rgba(159, 18, 57, 0.3);
+  color: #fecdd3;
+}
+
+.flower-btn {
+  padding: 8px 20px;
+  border-radius: 16px;
+  font-size: 14px;
+  font-weight: 600;
+  border: 1px solid var(--input-border);
+  background-color: transparent;
+  color: var(--text-main);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.3s ease;
+}
+
+.flower-btn.active {
+  background-color: var(--pastel-accent);
+  color: #ffffff;
+  border-color: var(--pastel-accent);
+  box-shadow: 0 4px 12px rgba(71, 176, 103, 0.25);
+}
+
+/* Form Styling */
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.form-group label {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text-subtle);
+}
+
+.form-input {
+  width: 100%;
+  padding: 10px 14px;
+  border-radius: 16px;
+  border: 1px solid var(--input-border);
+  background-color: var(--input-bg);
+  color: var(--text-main);
+  font-size: 13px;
+  font-weight: 500;
+  outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.form-input:focus {
+  border-color: var(--pastel-accent);
+  box-shadow: 0 0 0 3px rgba(71, 176, 103, 0.15);
+}
+
+/* Animations & Visuals */
+@keyframes float {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-8px) rotate(3deg); }
+}
+
+.animate-float {
+  animation: float 3.5s ease-in-out infinite;
+}
+
+.ambient-light {
+  position: absolute;
+  width: 128px;
+  height: 128px;
+  border-radius: 50%;
+  background-color: var(--pastel-chip);
+  bottom: 24px;
+  opacity: 0.5;
+  filter: blur(20px);
+}
+
+/* Progress Bar */
+.progress-bg {
+  width: 100%;
+  background-color: var(--pastel-chip);
+  height: 12px;
+  border-radius: 20px;
+  overflow: hidden;
+  padding: 2px;
+}
+
+.progress-fill {
+  background: linear-gradient(90deg, var(--pastel-accent), #6ecb8a);
+  height: 100%;
+  border-radius: 20px;
+  width: 0%;
+  transition: width 0.5s ease;
+}
+
+/* Chart Container */
+.chart-container {
+  position: relative;
+  height: 220px;
+  width: 100%;
+}
+
+.filter-group {
+  background-color: var(--pastel-chip);
+  padding: 4px;
+  border-radius: 16px;
+}
+
+.filter-btn {
+  padding: 6px 12px;
+  border-radius: 12px;
+  border: none;
+  background: transparent;
+  color: var(--text-subtle);
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.filter-btn.active {
+  background-color: var(--pastel-accent);
+  color: #ffffff;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+/* Table Styling */
+.history-table {
+  border-collapse: collapse;
+}
+
+.history-table th {
+  border-bottom: 2px solid var(--table-border);
+  color: var(--text-subtle);
+  font-weight: 700;
+}
+
+.history-table td {
+  border-bottom: 1px solid var(--table-border);
+  padding: 10px 12px;
+}
+
+.badge-tag {
+  display: inline-block;
+  padding: 2px 8px;
+  border-radius: 8px;
+  font-size: 10px;
+  font-weight: 700;
+}
+
+.badge-nabung { background-color: #dcfce7; color: #15803d; }
+.badge-pemasukan { background-color: #e0f2fe; color: #0369a1; }
+.badge-pengeluaran { background-color: #ffe4e6; color: #be123c; }
+
+html.dark .badge-nabung { background-color: rgba(22, 101, 52, 0.4); color: #86efac; }
+html.dark .badge-pemasukan { background-color: rgba(12, 74, 110, 0.4); color: #7dd3fc; }
+html.dark .badge-pengeluaran { background-color: rgba(159, 18, 57, 0.4); color: #fca5a5; }
+
+/* Grid Helpers */
+.grid { display: grid; }
+.grid-cols-1 { grid-template-columns: repeat(1, minmax(0, 1fr)); }
+
+@media (min-width: 640px) {
+  .sm\:grid-cols-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+@media (min-width: 768px) {
+  .md\:col-span-2 { grid-column: span 2 / span 2; }
+  .md\:col-span-3 { grid-column: span 3 / span 3; }
+  .md\:grid-cols-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
+
+@media (min-width: 1024px) {
+  .lg\:grid-cols-4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+}
+
+.gap-2 { gap: 8px; }
+.gap-3 { gap: 12px; }
+.gap-6 { gap: 24px; }
+.flex { display: flex; }
+.flex-col { flex-direction: column; }
+.items-center { align-items: center; }
+.justify-between { justify-content: space-between; }
+.justify-center { justify-content: center; }
+.hidden { display: none; }
